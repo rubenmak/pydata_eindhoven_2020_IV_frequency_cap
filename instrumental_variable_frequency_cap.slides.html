@@ -13206,7 +13206,7 @@ a.anchor-link {
 <h1 style="font-weight: bold; color: #ed9041">The Causal Problem of Overexposure to Repetitive Ads<br>
 </h1>
 
-<h2 style="color: #667b83">Instrument Variables and PyMC3</h2>
+<h2 style="color: #667b83">Instrumental Variables and PyMC3</h2>
 
 
 <p class="gap05">  </p>
@@ -14120,7 +14120,8 @@ Principal Data Scientist and Discovery Cluster Lead at Greenhouse</h3>
     <span class="n">𝛼</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">HalfNormal</span><span class="p">(</span><span class="s1">&#39;𝛼&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.16</span><span class="p">)</span>
     <span class="n">𝜃</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">HalfNormal</span><span class="p">(</span><span class="s1">&#39;𝜃&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Deterministic</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> 
-                         <span class="n">𝛼</span> <span class="o">*</span> <span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">invlogit</span><span class="p">(</span><span class="n">c_Z</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">max_impr</span><span class="p">)]</span> <span class="o">+</span> <span class="n">𝜃</span> <span class="o">*</span> <span class="n">df_frequency_cap</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+                         <span class="n">𝛼</span> <span class="o">*</span> <span class="n">pm</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">invlogit</span><span class="p">(</span><span class="n">c_Z</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">max_impr</span><span class="p">)]</span> 
+                                               <span class="o">+</span> <span class="n">𝜃</span> <span class="o">*</span> <span class="n">df_frequency_cap</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
     <span class="n">conversion</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="s1">&#39;conversion&#39;</span><span class="p">,</span> 
                              <span class="n">df_frequency_cap</span><span class="o">.</span><span class="n">users</span><span class="p">,</span> 
                              <span class="n">p</span><span class="p">,</span> 
